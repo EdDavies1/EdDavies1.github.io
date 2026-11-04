@@ -70,6 +70,13 @@
   .card p{color:#cfd6dc;margin:0 0 18px;font-size:16px}
   .card .go{margin-top:auto;color:var(--accent);font-weight:600}
 
+  .fund{border:1px solid var(--line);background:var(--panel);padding:28px}
+  .fund-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:20px}
+  .fund-facts div{background:var(--panel-2);padding:16px 18px}
+  .fund-facts strong{display:block;font-size:24px;margin-bottom:2px}
+  .fund-facts span{font-size:14px;color:var(--muted)}
+  .small-note{color:var(--muted);font-size:15px;margin:0 0 22px}
+  .small-note a{color:var(--text)}
   footer{padding:48px 0 64px;color:var(--muted);font-size:14px}
   footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
@@ -77,6 +84,7 @@
     .project{grid-template-columns:1fr}
     .project .media{min-height:0;aspect-ratio:16/9}
     .cards{grid-template-columns:1fr}
+    .fund-facts{grid-template-columns:1fr}
     nav ul{display:none}
     .intro{padding:80px 0 72px}
   }
@@ -175,16 +183,16 @@
 <section id="fundraising">
   <div class="wrap">
     <p class="eyebrow">Beyond work</p>
-    <h2>Fundraising</h2>
-    <p class="sub">Outside of engineering, I raise money for causes I care about. If you'd like to support it, every donation helps.</p>
-    <div class="cards" style="grid-template-columns:1fr">
-      <a class="card" href="https://donorbox.org/edwardd" target="_blank" rel="noopener" style="flex-direction:row;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
-        <div>
-          <span class="k">Donorbox</span>
-          <h3 style="margin:0">Support my fundraiser</h3>
-        </div>
-        <span class="go" style="margin:0">Donate on Donorbox ↗</span>
-      </a>
+    <h2>Driving an evacuation vehicle to Ukraine</h2>
+    <p class="sub">In early 2027 I'm driving 1,318 miles across Europe in 3 days to deliver a 4x4 evacuation vehicle to Ukraine with Driving Ukraine. The vehicle will be donated to frontline teams such as casualty evacuation crews, first responders and hospitals.</p>
+    <div class="fund">
+      <div class="fund-facts">
+        <div><strong class="mono">1,318</strong><span>miles in 3 days</span></div>
+        <div><strong class="mono">£3,500</strong><span>goal: half the vehicle, prep, fuel and transport</span></div>
+        <div><strong>Stretch</strong><span>a drone signal detector to give the crew early warning</span></div>
+      </div>
+      <p class="small-note">Organised with <a href="https://drivingukraine.com" target="_blank" rel="noopener">Driving Ukraine</a>, a team of Brits, Ukrainians and veterans who have delivered 366 vehicles across 59 convoys.</p>
+      <a class="btn" href="https://donorbox.org/edwardd" target="_blank" rel="noopener">Support the fundraiser on Donorbox <span aria-hidden="true">↗</span></a>
     </div>
   </div>
 </section>
