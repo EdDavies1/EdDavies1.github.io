@@ -3,16 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Synthetic Data for Vehicle Inspection | Edward Davies</title>
-<meta name="description" content="Digital twin of a vehicle inspection tunnel in NVIDIA Omniverse: CAD to OpenUSD, photorealistic materials, and automated, auto-annotated synthetic datasets for training vision AI.">
+<title>Edward Davies | Digital Engineering Portfolio</title>
+<meta name="description" content="Edward Davies, Digital Engineering Specialist working on digital twins, synthetic data and computer vision. CV, projects and fundraising.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0b0d10; --panel:#12161b; --line:#232a32; --text:#e8ecef; --muted:#9aa5b1;
-    --accent:#f4c20d; /* inspection-tunnel yellow */ --accent-ink:#0b0d10;
-    --max:1120px;
+    --bg:#0b0d10; --panel:#12161b; --panel-2:#161b21; --line:#232a32; --text:#e8ecef; --muted:#9aa5b1;
+    --accent:#f4c20d; --accent-ink:#0b0d10; --max:1120px;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -21,206 +20,180 @@
   .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
   .mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
 
-  /* nav */
   nav{position:sticky;top:0;z-index:10;background:rgba(11,13,16,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-  .brand{font-weight:600;text-decoration:none;letter-spacing:.2px}
+  .brand{font-weight:600;text-decoration:none}
   .brand span{color:var(--accent)}
   nav ul{display:flex;gap:24px;list-style:none;margin:0;padding:0}
   nav ul a{color:var(--muted);text-decoration:none;font-size:15px}
   nav ul a:hover{color:var(--text)}
 
-  /* hero */
-  header.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden;border-bottom:1px solid var(--line)}
-  .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,13,16,.15) 0%,rgba(11,13,16,.35) 45%,rgba(11,13,16,.95) 100%)}
-  .hero .wrap{position:relative;z-index:1;padding-bottom:64px;width:100%}
-  .tag{display:inline-block;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-ink);background:var(--accent);padding:4px 10px;font-weight:600}
-  h1{font-size:clamp(36px,6vw,72px);line-height:1.02;margin:18px 0 16px;font-weight:700;letter-spacing:-1.5px;max-width:14ch}
-  .lede{font-size:clamp(17px,2vw,21px);color:#cfd6dc;max-width:58ch;margin:0}
+  .intro{padding:120px 0 96px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+  .intro::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(600px 300px at 85% 20%,rgba(244,194,13,.10),transparent 70%);pointer-events:none}
+  .eyebrow{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+  h1{font-size:clamp(44px,7vw,88px);line-height:1;margin:0 0 22px;letter-spacing:-2px;font-weight:700}
+  .lede{font-size:clamp(18px,2.1vw,22px);color:#cfd6dc;max-width:60ch;margin:0 0 36px}
+  .actions{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;padding:14px 22px;border:1px solid var(--accent)}
+  .btn.ghost{background:transparent;color:var(--text);border-color:var(--line)}
+  .btn.ghost:hover{border-color:var(--muted)}
+  .meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:48px;color:var(--muted);font-size:14px}
+  .meta b{color:var(--text);font-weight:500}
   .hazard{height:10px;background:repeating-linear-gradient(-45deg,var(--accent) 0 14px,#111 14px 28px)}
 
   section{padding:88px 0;border-bottom:1px solid var(--line)}
-  .eyebrow{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
-  h2{font-size:clamp(28px,3.6vw,42px);line-height:1.1;margin:0 0 20px;letter-spacing:-.6px}
-  p{margin:0 0 16px;color:#cfd6dc}
-  .grid2{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+  h2{font-size:clamp(28px,3.6vw,42px);line-height:1.1;margin:0 0 12px;letter-spacing:-.6px}
+  .sub{color:var(--muted);margin:0 0 36px;max-width:60ch}
 
-  /* facts */
-  .facts{border:1px solid var(--line);background:var(--panel)}
-  .facts div{display:flex;justify-content:space-between;gap:16px;padding:14px 18px;border-bottom:1px solid var(--line);font-size:15px}
-  .facts div:last-child{border-bottom:0}
-  .facts dt{color:var(--muted)} .facts dd{margin:0;text-align:right}
+  .project{display:grid;grid-template-columns:1.25fr 1fr;border:1px solid var(--line);background:var(--panel);text-decoration:none;transition:border-color .2s}
+  .project:hover{border-color:var(--accent)}
+  .project .media{position:relative;min-height:320px;background:#000 url(media/poster.jpg) center/cover;overflow:hidden}
+  .project .media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .project .body{padding:32px;display:flex;flex-direction:column}
+  .tag{display:inline-block;align-self:flex-start;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent-ink);background:var(--accent);padding:3px 9px;font-weight:600;margin-bottom:16px}
+  .project h3{font-size:28px;line-height:1.15;margin:0 0 12px}
+  .project p{color:#cfd6dc;margin:0 0 20px}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin:0 0 24px}
+  .stats div{background:var(--panel-2);padding:12px 14px}
+  .stats strong{display:block;font-size:20px}
+  .stats span{font-size:13px;color:var(--muted)}
+  .more{margin-top:auto;font-weight:600;color:var(--accent)}
 
-  /* pipeline */
-  .pipeline{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:40px;counter-reset:step}
-  .step{position:relative;padding:24px 20px 24px 0;border-top:2px solid var(--line)}
-  .step::before{counter-increment:step;content:"0" counter(step);position:absolute;top:-14px;left:0;background:var(--bg);padding-right:10px;font-family:"IBM Plex Mono",monospace;color:var(--accent);font-size:14px}
-  .step h3{font-size:19px;margin:6px 0 8px}
-  .step p{font-size:15px;color:var(--muted);margin:0}
+  .soon{margin-top:16px;border:1px dashed var(--line);padding:22px 24px;color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
-  /* showcase video */
-  .player{position:relative;border:1px solid var(--line);background:#000}
-  .player video{display:block;width:100%;height:auto}
-  .caption{display:flex;justify-content:space-between;gap:16px;font-size:14px;color:var(--muted);margin-top:12px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{border:1px solid var(--line);background:var(--panel);padding:28px;text-decoration:none;display:flex;flex-direction:column;transition:border-color .2s}
+  .card:hover{border-color:var(--accent)}
+  .card .k{font-size:13px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .card h3{font-size:22px;margin:0 0 8px}
+  .card p{color:#cfd6dc;margin:0 0 18px;font-size:16px}
+  .card .go{margin-top:auto;color:var(--accent);font-weight:600}
 
-  /* GTC */
-  .yt{position:relative;aspect-ratio:16/9;border:1px solid var(--line);background:
-      linear-gradient(135deg,#0f1a0a 0%,#12161b 60%);display:flex;align-items:center;justify-content:center;text-decoration:none;overflow:hidden}
-  .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-  .yt .play{width:84px;height:84px;border-radius:50%;background:var(--accent);display:grid;place-items:center;transition:transform .2s}
-  .yt:hover .play{transform:scale(1.07)}
-  .yt .play svg{margin-left:6px}
-  .yt .label{position:absolute;left:20px;bottom:18px;right:20px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
-  .yt .label strong{font-size:20px}
-  .yt .label span{color:var(--muted);font-size:14px}
-
-  /* stack */
-  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
-  .chips span{border:1px solid var(--line);background:var(--panel);padding:8px 14px;font-size:14px;font-family:"IBM Plex Mono",monospace}
-
-  ul.outcomes{list-style:none;padding:0;margin:0}
-  ul.outcomes li{padding:16px 0 16px 28px;border-bottom:1px solid var(--line);position:relative;color:#cfd6dc}
-  ul.outcomes li::before{content:"";position:absolute;left:0;top:25px;width:12px;height:3px;background:var(--accent)}
-
-  footer{padding:56px 0 72px}
-  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
-  .btn{display:inline-block;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;padding:14px 22px}
-  .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
-  .small{font-size:13px;color:var(--muted)}
+  footer{padding:48px 0 64px;color:var(--muted);font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
   @media (max-width:900px){
-    .grid2{grid-template-columns:1fr;gap:32px}
-    .pipeline{grid-template-columns:1fr 1fr}
+    .project{grid-template-columns:1fr}
+    .project .media{min-height:0;aspect-ratio:16/9}
+    .cards{grid-template-columns:1fr}
     nav ul{display:none}
+    .intro{padding:80px 0 72px}
   }
-  @media (max-width:520px){ .pipeline{grid-template-columns:1fr} }
-  @media (prefers-reduced-motion:reduce){ .hero video{display:none} header.hero{background:url(media/poster.jpg) center/cover} }
+  @media (prefers-reduced-motion:reduce){ .project .media video{display:none} }
 </style>
 </head>
 <body>
 
 <nav>
   <div class="wrap">
-    <a class="brand" href="#top">Edward Davies <span>/</span> Portfolio</a>
+    <a class="brand" href="./">Edward Davies <span>/</span> Portfolio</a>
     <ul>
-      <li><a href="#overview">Overview</a></li>
-      <li><a href="#pipeline">Pipeline</a></li>
-      <li><a href="#showcase">Showcase</a></li>
-      <li><a href="#gtc">GTC 2025</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#links">CV &amp; links</a></li>
+      <li><a href="#fundraising">Fundraising</a></li>
     </ul>
   </div>
 </nav>
 
-<header class="hero" id="top">
-  <video src="media/project-showcase.mp4" poster="media/poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+<header class="intro">
   <div class="wrap">
-    <span class="tag">Case study · JLR</span>
-    <h1>Synthetic data for vehicle inspection</h1>
-    <p class="lede">A photorealistic digital twin of a vehicle inspection tunnel, built in NVIDIA Omniverse, that renders 12,000 auto-annotated images per node per day to train computer vision models before a single real photo is taken.</p>
+    <p class="eyebrow">Digital Engineering Specialist</p>
+    <h1>Edward Davies</h1>
+    <p class="lede">I build digital twins and synthetic data pipelines, using NVIDIA Omniverse, OpenUSD and Python to turn 3D data into training data for computer vision. First-class graduate in Computer Science with AI, and most recently at JLR.</p>
+    <div class="actions">
+      <a class="btn" href="cv/Edward_Davies_CV.pdf" target="_blank" rel="noopener">View CV <span aria-hidden="true">↗</span></a>
+      <a class="btn ghost" href="https://linkedin.com/in/edward-davies-a04732193" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+      <a class="btn ghost" href="#work">See my work <span aria-hidden="true">↓</span></a>
+    </div>
+    <div class="meta">
+      <span><b>Based in</b> the UK</span>
+      <span><b>Focus</b> Digital twins · Synthetic data · Computer vision</span>
+      <span><b>Status</b> Open to new roles</span>
+    </div>
   </div>
 </header>
 <div class="hazard" aria-hidden="true"></div>
 
-<section id="overview">
-  <div class="wrap grid2">
-    <div>
-      <p class="eyebrow">Overview</p>
-      <h2>Training data without waiting for the cars</h2>
-      <p>Vision models that inspect vehicles need large, labelled image sets. Real images only exist once a vehicle is built, and every label costs time to add by hand.</p>
-      <p>I led JLR's synthetic data project as its sole developer. I modelled the inspection tunnels as digital twins in Blender, brought vehicles in from production CAD via Deltagen and OpenUSD, and tuned materials and lighting until, to the human eye, the synthetic images could not be told apart from real tunnel captures. The pipeline then rendered and labelled datasets automatically.</p>
-      <p>The extensions are object-oriented and vehicle-agnostic, so a new vehicle is onboarded by updating its USD prim paths. A current production vehicle serves as a control: it has real tunnel images, so its synthetic data can be checked against reality. One future programme is fully set up and a second is being onboarded.</p>
-    </div>
-    <dl class="facts">
-      <div><dt>Role</dt><dd>Digital Specialist, sole developer</dd></div>
-      <div><dt>Organisation</dt><dd>JLR (Jaguar Land Rover)</dd></div>
-      <div><dt>Platform</dt><dd>NVIDIA Omniverse, OpenUSD</dd></div>
-      <div><dt>Throughput</dt><dd>12,000 annotated images per node per day</dd></div>
-      <div><dt>Vehicles</dt><dd>1 current (control), 1 future ready, 1 onboarding</dd></div>
-      <div><dt>Shown at</dt><dd>NVIDIA GTC San Jose 2025</dd></div>
-    </dl>
-  </div>
-</section>
-
-<section id="pipeline">
+<section id="work">
   <div class="wrap">
-    <p class="eyebrow">How it works</p>
-    <h2>From CAD to training-ready dataset</h2>
-    <div class="pipeline">
-      <div class="step"><h3>Digital twin</h3><p>Inspection tunnels modelled in Blender and assembled in Omniverse to match the real geometry, lighting and camera positions.</p></div>
-      <div class="step"><h3>CAD to USD</h3><p>Vehicle CAD processed in Deltagen and exported to OpenUSD, so unreleased models could be imaged early.</p></div>
-      <div class="step"><h3>Automation</h3><p>Custom Omniverse extensions to move wheels, place vehicles and drive them through the tunnel.</p></div>
-      <div class="step"><h3>Photorealism</h3><p>Paint, materials and lighting tuned until synthetic frames matched real tunnel images.</p></div>
-      <div class="step"><h3>Render &amp; label</h3><p>Automated rendering with bounding boxes generated alongside each image, exported as COCO JSON, JSONL and CSV, then used to train RF-DETR models.</p></div>
-    </div>
-  </div>
-</section>
+    <p class="eyebrow">Work</p>
+    <h2>Projects</h2>
+    <p class="sub">Case studies from industry, plus personal projects built with public data.</p>
 
-<section id="showcase">
-  <div class="wrap">
-    <p class="eyebrow">Showcase</p>
-    <h2>A prototype rolling through the twin</h2>
-    <p style="max-width:62ch">This clip was rendered entirely in the digital twin. A camouflaged prototype drives through the inspection tunnel, animated by the same automation that positioned vehicles for dataset generation.</p>
-    <div class="player" style="margin-top:28px">
-      <video src="media/project-showcase.mp4" poster="media/poster.jpg" controls muted loop playsinline preload="metadata"></video>
-    </div>
-    <div class="caption"><span>Fully synthetic render · NVIDIA Omniverse</span><span class="mono">1080p · 23s</span></div>
-  </div>
-</section>
-
-<section id="gtc">
-  <div class="wrap grid2">
-    <div>
-      <p class="eyebrow">NVIDIA GTC San Jose 2025</p>
-      <h2>Presented on NVIDIA's stage</h2>
-      <p>The project was featured in the GTC 2025 session <em>Accelerating Insights and Efficiencies in Automotive Manufacturing using Immersive Digital Twins</em> (S73011), as an example of synthetic data and digital twins in automotive manufacturing.</p>
-      <p>The synthetic data project section runs from <strong class="mono">13:15</strong> to <strong class="mono">15:02</strong>.</p>
-      <p class="small">Opens on NVIDIA On-Demand. You may be asked to sign in to NVIDIA.</p>
-    </div>
-    <a class="yt" id="gtc-video" href="https://www.nvidia.com/zh-tw/on-demand/session/gtc25-s73011/?playlistId=playList-48cd6254-aaf2-4176-b612-f6b92574092b" target="_blank" rel="noopener">
-      <div class="play" aria-hidden="true"><svg width="30" height="34" viewBox="0 0 30 34"><path d="M0 0 L30 17 L0 34 Z" fill="#0b0d10"/></svg></div>
-      <div class="label"><strong>Watch the session · skip to 13:15</strong><span class="mono">NVIDIA On-Demand</span></div>
-    </a>
-  </div>
-</section>
-
-<section id="outcomes">
-  <div class="wrap grid2">
-    <div>
-      <p class="eyebrow">Outcomes</p>
-      <h2>What it delivered</h2>
-      <ul class="outcomes">
-        <li>12,000 annotated images per node per day, generated without anyone needing to take or label a photo.</li>
-        <li>Training data for a future vehicle was ready before it physically existed, with a second programme being onboarded.</li>
-        <li>A current vehicle was used as a control, so synthetic images could be checked against real tunnel images.</li>
-        <li>Models trained with GCP AutoML and an internal RF-DETR pipeline were benchmarked against curated test datasets.</li>
-        <li>To the human eye, the most recent datasets could not be told apart from real tunnel images.</li>
-      </ul>
-    </div>
-    <div>
-      <p class="eyebrow">Tools</p>
-      <h2>Stack</h2>
-      <div class="chips">
-        <span>NVIDIA Omniverse</span><span>OpenUSD</span><span>Synthetic data generation</span><span>Kit extensions</span><span>Python (OOP)</span><span>Blender</span><span>Deltagen</span><span>RF-DETR</span><span>GCP AutoML</span><span>COCO JSON</span><span>Photorealistic materials</span><span>RTX rendering</span><span>Auto-annotation</span>
+    <a class="project" href="synthetic-data.html">
+      <div class="media">
+        <video src="media/project-showcase.mp4" poster="media/poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
       </div>
+      <div class="body">
+        <span class="tag">Case study · JLR</span>
+        <h3>Synthetic data for vehicle inspection</h3>
+        <p>A photorealistic digital twin of an inspection tunnel in NVIDIA Omniverse, generating auto-annotated training data for vision AI before vehicles are built.</p>
+        <div class="stats">
+          <div><strong class="mono">12,000</strong><span>images per node per day</span></div>
+          <div><strong>GTC 2025</strong><span>featured at NVIDIA's conference</span></div>
+        </div>
+        <span class="more">Read the case study →</span>
+      </div>
+    </a>
+
+    <div class="soon">
+      <span>More projects in progress: a synthetic defect-detection dataset and a CAD to OpenUSD pipeline tool.</span>
+      <span class="mono">Coming soon</span>
+    </div>
+  </div>
+</section>
+
+<section id="links">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2>CV &amp; links</h2>
+    <p class="sub">The quickest way to see my experience, or to reach me.</p>
+    <div class="cards">
+      <a class="card" href="cv/Edward_Davies_CV.pdf" target="_blank" rel="noopener">
+        <span class="k">CV</span>
+        <h3>Download my CV</h3>
+        <p>Experience, skills and education on two pages.</p>
+        <span class="go">Open PDF ↗</span>
+      </a>
+      <a class="card" href="https://linkedin.com/in/edward-davies-a04732193" target="_blank" rel="noopener">
+        <span class="k">LinkedIn</span>
+        <h3>Connect with me</h3>
+        <p>Recommendations, updates and posts about new projects.</p>
+        <span class="go">View profile ↗</span>
+      </a>
+      <div class="card">
+        <span class="k">Email</span>
+        <h3>Say hello</h3>
+        <p class="mono" style="font-size:14px;word-break:break-all">Edward0605davies@gmail.com</p>
+        <a class="go" href="mailto:Edward0605davies@gmail.com" style="text-decoration:none">Send an email →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fundraising">
+  <div class="wrap">
+    <p class="eyebrow">Beyond work</p>
+    <h2>Fundraising</h2>
+    <p class="sub">Outside of engineering, I raise money for causes I care about. If you'd like to support it, every donation helps.</p>
+    <div class="cards" style="grid-template-columns:1fr">
+      <a class="card" href="https://donorbox.org/edwardd" target="_blank" rel="noopener" style="flex-direction:row;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+        <div>
+          <span class="k">Donorbox</span>
+          <h3 style="margin:0">Support my fundraiser</h3>
+        </div>
+        <span class="go" style="margin:0">Donate on Donorbox ↗</span>
+      </a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div>
-      <p style="margin:0 0 4px;font-size:22px;font-weight:600">Building synthetic data or digital twins?</p>
-      <p class="small" style="margin:0">Available now for Synthetic Data, Omniverse and Digital Twin roles.</p>
-    </div>
-    <div style="display:flex;gap:12px;flex-wrap:wrap">
-      <a class="btn" href="https://linkedin.com/in/edward-davies-a04732193" target="_blank" rel="noopener">LinkedIn</a>
-      <!-- GitHub button removed for now. Add back once there is public work:
-      <a class="btn ghost" href="https://github.com/EdDavies1" target="_blank" rel="noopener">GitHub</a>
-      -->
-    </div>
+    <span>© 2026 Edward Davies</span>
+    <span class="mono">edavies.dev</span>
   </div>
-  <div class="wrap"><p class="small" style="margin-top:32px">Video shown with permission from JLR. No confidential data is included on this page.</p></div>
 </footer>
 
 </body>
