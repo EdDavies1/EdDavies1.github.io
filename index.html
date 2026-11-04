@@ -83,7 +83,7 @@
   @media (max-width:900px){
     .project{grid-template-columns:1fr}
     .project .media{min-height:0;aspect-ratio:16/9}
-    .cards{grid-template-columns:1fr}
+    .cards{grid-template-columns:1fr !important}
     .fund-facts{grid-template-columns:1fr}
     nav ul{display:none}
     .intro{padding:80px 0 72px}
@@ -151,8 +151,8 @@
   <div class="wrap">
     <p class="eyebrow">Get in touch</p>
     <h2>CV &amp; links</h2>
-    <p class="sub">The quickest way to see my experience, or to reach me.</p>
-    <div class="cards">
+    <p class="sub">The quickest way to see my experience, or to get in touch.</p>
+    <div class="cards" style="grid-template-columns:repeat(2,1fr)">
       <a class="card" href="cv/Edward_Davies_CV.pdf" target="_blank" rel="noopener">
         <span class="k">CV</span>
         <h3>Download my CV</h3>
@@ -162,15 +162,9 @@
       <a class="card" href="https://linkedin.com/in/edward-davies-a04732193" target="_blank" rel="noopener">
         <span class="k">LinkedIn</span>
         <h3>Connect with me</h3>
-        <p>Recommendations, updates and posts about new projects.</p>
+        <p>My full work history, skills and recommendations.</p>
         <span class="go">View profile ↗</span>
       </a>
-      <div class="card">
-        <span class="k">Email</span>
-        <h3>Say hello</h3>
-        <p class="mono" style="font-size:14px;word-break:break-all">Edward0605davies@gmail.com</p>
-        <a class="go" href="mailto:Edward0605davies@gmail.com" style="text-decoration:none">Send an email →</a>
-      </div>
     </div>
   </div>
 </section>
